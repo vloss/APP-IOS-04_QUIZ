@@ -25,7 +25,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="Começar">
                                     <color key="titleColor" systemColor="systemGray6Color"/>
                                 </state>
                                 <connections>
@@ -41,10 +41,10 @@
             </objects>
             <point key="canvasLocation" x="135.1145038167939" y="3.5211267605633805"/>
         </scene>
-        <!--View Controller-->
+        <!--Quiz View Controller-->
         <scene sceneID="naV-sT-3U8">
             <objects>
-                <viewController id="chG-F2-YhL" sceneMemberID="viewController">
+                <viewController id="chG-F2-YhL" customClass="QuizViewController" customModule="Swift_Quiz" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rBm-h3-ySU">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -80,6 +80,9 @@
                                         <state key="normal">
                                             <color key="titleColor" red="1" green="0.28235294119999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="selectAnswer:" destination="chG-F2-YhL" eventType="touchUpInside" id="0hF-oD-Ow4"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5gV-mt-HwH">
                                         <rect key="frame" x="0.0" y="37" width="393" height="35"/>
@@ -91,6 +94,9 @@
                                         <state key="normal">
                                             <color key="titleColor" red="1" green="0.28235294119999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="selectAnswer:" destination="chG-F2-YhL" eventType="touchUpInside" id="H91-mq-bKf"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Hf-jy-J2J">
                                         <rect key="frame" x="0.0" y="73" width="393" height="35"/>
@@ -102,6 +108,9 @@
                                         <state key="normal">
                                             <color key="titleColor" red="1" green="0.28235294119999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="selectAnswer:" destination="chG-F2-YhL" eventType="touchUpInside" id="BuG-rB-SOO"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kZe-uX-CMf">
                                         <rect key="frame" x="0.0" y="109" width="393" height="35"/>
@@ -113,6 +122,9 @@
                                         <state key="normal">
                                             <color key="titleColor" red="1" green="0.28235294119999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="selectAnswer:" destination="chG-F2-YhL" eventType="touchUpInside" id="VhK-OD-oc6"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
@@ -130,6 +142,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="QpN-eP-NOW"/>
                     <connections>
+                        <outlet property="lbQuestion" destination="heR-UD-YFX" id="Sxo-k4-PHS"/>
+                        <outlet property="viTimer" destination="WKX-jc-qgA" id="IfD-uD-D7Q"/>
+                        <outletCollection property="btAnswers" destination="5vN-he-OXy" collectionClass="NSMutableArray" id="eX7-Dj-iBy"/>
+                        <outletCollection property="btAnswers" destination="5gV-mt-HwH" collectionClass="NSMutableArray" id="zKj-dp-bHA"/>
+                        <outletCollection property="btAnswers" destination="4Hf-jy-J2J" collectionClass="NSMutableArray" id="bsE-dv-deF"/>
+                        <outletCollection property="btAnswers" destination="kZe-uX-CMf" collectionClass="NSMutableArray" id="LJi-SP-fAx"/>
                         <segue destination="JYG-cP-2e4" kind="show" id="fcj-Ej-t90"/>
                     </connections>
                 </viewController>
@@ -137,10 +155,10 @@
             </objects>
             <point key="canvasLocation" x="800.76335877862596" y="3.5211267605633805"/>
         </scene>
-        <!--View Controller-->
+        <!--Result View Controller-->
         <scene sceneID="Oo3-Q5-BRL">
             <objects>
-                <viewController id="JYG-cP-2e4" sceneMemberID="viewController">
+                <viewController id="JYG-cP-2e4" customClass="ResultViewController" customModule="Swift_Quiz" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="W1C-sK-1nU">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -188,12 +206,21 @@
                                 <state key="normal" title="Reiniciar">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="close:" destination="JYG-cP-2e4" eventType="touchUpInside" id="gPF-7e-Hp0"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Iel-sG-15n"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="3KK-hW-t8H"/>
+                    <connections>
+                        <outlet property="lbAnswered" destination="fyv-G4-Bb8" id="Xrr-2E-NLd"/>
+                        <outlet property="lbCorrect" destination="BHU-az-Gmd" id="m0Z-24-9xK"/>
+                        <outlet property="lbScore" destination="sYs-5R-kgl" id="Neu-yR-uTA"/>
+                        <outlet property="lbWrong" destination="tPb-FT-pOa" id="Y9S-0U-jmc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K3L-SV-XEu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
